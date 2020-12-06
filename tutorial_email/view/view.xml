@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+		<record id="product_repair_form" model="ir.ui.view">
+            <field name="name">product.repair.form</field>
+            <field name="model">product.repair</field>
+            <field name="arch" type="xml">
+                <form string="Product Repair">
+                    <header>
+                        <button name="send_finish_email" type="object" string="Send Finish Notification"/>
+                    </header>
+                	<sheet>
+                		<group>
+                			<group>
+                				<field name="product_id" />
+                				<field name="partner_id" />
+                			</group>
+                			<group>
+                				<field name="state" />
+                			</group>
+                		</group>
+                	</sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="product_repair_tree" model="ir.ui.view">
+            <field name="name">product.repair.tree</field>
+            <field name="model">product.repair</field>
+            <field name="arch" type="xml">
+                <tree string="Product Repair">
+                	<field name="product_id" />
+    				<field name="partner_id" />
+    				<field name="state" />
+                </tree>
+            </field>
+        </record>
+
+        <act_window
+            id="action_product_repair"
+            name="Product Repair"
+            res_model="product.repair"/>
+
+
+        <menuitem
+            id="menu_action_product_repair"
+            action="action_product_repair"
+            web_icon="tutorial_email,static/description/icon.png"
+            sequence="1"/>
+
+
+    </data>
+</odoo>

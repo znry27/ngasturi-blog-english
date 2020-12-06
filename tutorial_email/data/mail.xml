@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">        
+
+        <record id="product_repair_finish_email_template" model="mail.template">
+            <field name="name">Product Repair Finish Email Template</field>
+            <field name="model_id" ref="tutorial_email.model_product_repair"/>
+            <field name="email_from">Ngasturi Teknik &lt;z.nry27@gmail.com&gt;</field>
+            <field name="partner_to">${object.partner_id.id}</field>
+            <field name="subject">Finished Repair Notification </field>
+            <field name="body_html" type="html">
+<div style="font-family: 'sans-serif'; padding: 10px; max-width:700px; background-color: white; border: 4px solid #0E9C48;">
+    <h3 style="background-color: #0E9C48; color: white; text-align: center; padding: 20px 0px; margin-bottom: 10px;">
+        NGASTURI TEKNIK
+    </h3>
+    <h4>Hai ${object.partner_id.name}</h4>
+    <p>
+        We hereby inform you that the repair for your ${object.product_id.name} product has:
+    </p>
+
+    <p style="text-align: center; margin-bottom: 20px; margin-top: 20px;">
+        <span style="background-color: #0E9C48; color: white; padding: 10px 10px;">FINISHED</span>
+    </p>
+
+    <p>
+        You can pick up the product during our working hours: <b>Monday - Friday 09:00 - 17:00</b>.
+    </p>
+
+    <p>Thank You.</p>
+    
+</div>
+            </field>
+        </record>
+
+
+        <template id="message_no_odoo_branding">
+            <div t-raw="message.body"/>
+        </template>
+    </data>
+</odoo>
