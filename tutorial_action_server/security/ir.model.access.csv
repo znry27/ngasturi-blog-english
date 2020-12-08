@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ng_sale_target,ng.sale.target,model_ng_sale_target,sales_team.group_sale_salesman,1,1,1,0
+access_ng_sale_target_line,ng.sale.target.line,model_ng_sale_target_line,sales_team.group_sale_salesman,1,1,1,0

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>  
+    <data>
+        
+        <record id="ng_sale_target_form" model="ir.ui.view">
+            <field name="name">Sales Target</field>
+            <field name="model">ng.sale.target</field>
+            <field name="arch" type="xml">
+                <form string="Sales Target" create="0" delete="0">
+                    <sheet>
+                        <h2>Enter the sales target per Sales Person</h2>
+                        <notebook>
+                            <page string="Sales Target">
+                                <field name="target_line_id">
+                                    <tree editable="bottom">
+                                        <field name="user_id" />
+                                        <field name="total_target" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Action Server -->
+        <record id="action_open_sale_target_form" model="ir.actions.server">
+            <field name="name">Sales Target</field>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <!-- model name -->
+            <field name="model_id" ref="model_ng_sale_target"/> 
+            <!-- The name of the method to be called -->
+            <field name="code">action = model.open_sales_target()</field>
+        </record>
+        
+        <!-- Menuitem on Sales >> Configuration menu -->
+        <menuitem name="Sales Target"
+                id="menu_sale_target"
+                parent="sale.menu_sale_config"
+                action="action_open_sale_target_form" />
+
+        
+    </data>
+</odoo>
