@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="sale_trust_wizard_form">
+            <field name="name">sale_trust_wizard_form</field>
+            <field name="model">sale.trust.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="partner_id" /> is blaclisted. Are you sure want to approve this Sale Order ?
+                    
+                    <footer>
+                        <button name="approve_blacklisted_customer_order" type="object" string="Approve" class="btn-primary" groups="partner_trust.group_approve_sale_order_of_blacklisted_customer" />
+                        <button string="Cancel" special="cancel" />
+                    </footer>
+                </form>                
+            </field>
+        </record>
+    </data>
+</odoo>

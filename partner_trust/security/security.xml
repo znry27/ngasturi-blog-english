@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+	    <record id="group_edit_partner_trust_state" model="res.groups">
+	        <field name="name">Edit partner trust state</field>
+	    </record>
+
+	    <record id="group_approve_sale_order_of_blacklisted_customer" model="res.groups">
+	        <field name="name">Approve sale order of blacklisted customer</field>
+	    </record>
+
+	</data>
+</odoo>
