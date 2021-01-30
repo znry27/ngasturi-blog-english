@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>  
+    <data>
+        <!-- Form to select the salesperson, start date, and end date -->
+        <record id="ng_sale_wizard_form" model="ir.ui.view">
+            <field name="name">Sales Report in Excel Format</field>
+            <field name="model">ng.sale.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Sales Report in Excel Format">
+                    <group>
+                        <group>
+                            <field name="user_id" required="1" widget="many2many_tags"/>
+                        </group>
+                        <group>
+                            <field name="start_date" required="1"/>
+                            <field name="end_date" required="1"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <!-- a button to start the download process -->                        
+                        <button name="get_excel_report" string="Export (XLS)" type="object"
+                                class="btn-primary"/>
+                        <!-- a cancel button to close the form -->
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record> 
+
+        <!-- the action to open the form above -->
+        <record model="ir.actions.act_window" id="action_open_ng_sale_wizard_form">
+            <field name="name">Sales Report in Excel Format</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ng.sale.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        
+        <!-- The menu item in Sale >> Reporting menu, to invoke the above action, so the user can see the form -->
+        <menuitem name="Sales Report in Excel Format"
+                id="menu_sale_report_in_excel"
+                parent="sale.menu_sale_report"
+                action="action_open_ng_sale_wizard_form" />
+
+        
+    </data>
+</odoo>
