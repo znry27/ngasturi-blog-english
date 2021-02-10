@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_my_service_detail_manager,my.service.detail,model_my_service_detail,,1,1,1,1
+access_my_service_manager,my.service,model_my_service,,1,1,1,1

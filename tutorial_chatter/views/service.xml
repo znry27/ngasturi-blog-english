@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!-- the main service form -->
+        <record id="service_form" model="ir.ui.view">
+            <field name="name">Service Form</field>
+            <field name="model">my.service</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>                    
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" />
+                            </group>
+                            <group>
+                                <field name="customer" />
+                                <field name="date" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Detail">
+                                <field name="service_detail">
+                                    <tree editable="bottom">
+                                        <field name="product" />
+                                        <field name="customer_complaint" />
+                                        <field name="warranty" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <!-- the above part is a normal Odoo view -->
+                    <!-- the section below is the code to display the chatter -->
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- the form service detail, if a user clicks on the data in the Detail tab this form will be opened -->
+
+        <record id="service_detail_form" model="ir.ui.view">
+            <field name="name">Service Detail Form</field>
+            <field name="model">my.service.detail</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>                    
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="product" />
+                            </group>
+                            <group>
+                                <field name="customer_complaint" />
+                                <field name="warranty" />
+                            </group>
+                        </group>                        
+                    </sheet>
+                    <!-- the above part is a normal Odoo view -->
+                    <!-- the section below is the code to display the chatter -->
+                    <!-- 
+                        because this form is called in a modal, don't use the oe_chatter class.
+                        if you use this class the chatter will not appear in the modal. 
+                    -->
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        
+        <!-- an action window to open the service form -->
+
+        <record model="ir.actions.act_window" id="open_service_form">
+            <field name="name">Service Form</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">my.service</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>        
+        
+        <!-- a menu item in odoo home page -->
+        
+        <menuitem name="Service"
+            id="service_main_menu"
+            web_icon="tutorial_chatter,static/description/icon.png"
+            action="open_service_form"
+            sequence="0" />
+        
+    </data>
+</odoo>
