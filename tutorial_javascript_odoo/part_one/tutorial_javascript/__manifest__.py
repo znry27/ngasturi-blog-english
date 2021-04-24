@@ -3,7 +3,7 @@
     "author": "Ngasturi",
     "version": "1.0.0",
     "category": "",
-    "website": "https://ngasturi.id",
+    "website": "https://en.ngasturi.id",
     "summary": "",
     "description": """
             

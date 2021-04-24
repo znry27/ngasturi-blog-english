@@ -7,7 +7,7 @@ odoo.define('tutorial_javascript.widget_one', function (require) {
     // create an object with any name
     // don't forget to extend to the web.AbstractField object or its child
     var WidgetOne = AbstractField.extend({
-        template: 'WidgetOneTemplate', // isi nama template yang telah dibuat untuk mengatur tampilan/view widget
+        template: 'WidgetOneTemplate', // fill with the template name that will be rendered by odoo
     });
 
     // register the widget to web.field_registry object
