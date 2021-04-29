@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="model_one_form" model="ir.ui.view">
+            <field name="name">model.one.form</field>
+            <field name="model">model.one</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_change_field" string="Change Value Field Two" class="oe_highlight" type="object" />
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <field name="field_one" />
+                            </group>
+                            <group>
+                                <field name="field_two" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="model_one_tree" model="ir.ui.view">
+            <field name="name">model_one_tree</field>
+            <field name="model">model.one</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="field_one" />
+                    <field name="field_two" />
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="model_two_form" model="ir.ui.view">
+            <field name="name">model.two.form</field>
+            <field name="model">model.two</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_change_field" string="Change Value Field Two" class="oe_highlight" type="object" />
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <field name="field_one" />
+                            </group>
+                            <group>
+                                <field name="field_two" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="model_two_tree" model="ir.ui.view">
+            <field name="name">model_two_tree</field>
+            <field name="model">model.two</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="field_one" />
+                    <field name="field_two" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="model_three_form" model="ir.ui.view">
+            <field name="name">model.three.form</field>
+            <field name="model">model.three</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_change_field" string="Change Value Field Two" class="oe_highlight" type="object" />
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <field name="field_one" />
+                            </group>
+                            <group>
+                                <field name="field_two" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="model_three_tree" model="ir.ui.view">
+            <field name="name">model_three_tree</field>
+            <field name="model">model.three</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="field_one" />
+                    <field name="field_two" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="model_four_form" model="ir.ui.view">
+            <field name="name">model.four.form</field>
+            <field name="model">model.four</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_change_field" string="Change Value Field Two" class="oe_highlight" type="object" />
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <field name="field_one" />
+                            </group>
+                            <group>
+                                <field name="field_two" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="model_four_tree" model="ir.ui.view">
+            <field name="name">model_four_tree</field>
+            <field name="model">model.four</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="field_one" />
+                    <field name="field_two" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="model_one_menu_action" model="ir.actions.act_window">
+            <field name="name">Model One</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">model.one</field>
+        </record>
+
+        <record id="model_two_menu_action" model="ir.actions.act_window">
+            <field name="name">Model Two</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">model.two</field>
+        </record>
+
+        <record id="model_three_menu_action" model="ir.actions.act_window">
+            <field name="name">Model Three</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">model.three</field>
+        </record>
+
+        <record id="model_four_menu_action" model="ir.actions.act_window">
+            <field name="name">Model Four</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">model.four</field>
+        </record>
+
+        <menuitem id="tutorial_edit_root"
+            name="Tutorial Edit"
+            web_icon="tutorial_edit_access_right,static/description/icon.png" />
+
+
+        <menuitem id="model_one_menu"
+            name="Model One"
+            parent="tutorial_edit_root"
+            action="model_one_menu_action" />
+
+        <menuitem id="model_two_menu"
+            name="Model Two"
+            parent="tutorial_edit_root"
+            action="model_two_menu_action" />
+
+        <menuitem id="model_three_menu"
+            name="Model Three"
+            parent="tutorial_edit_root"
+            action="model_three_menu_action" />
+
+        <menuitem id="model_four_menu"
+            name="Model Four"
+            parent="tutorial_edit_root"
+            action="model_four_menu_action" />
+    </data>
+</odoo>

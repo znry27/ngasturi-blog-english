@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="tutorial_edit_assets_backend" inherit_id="web.assets_backend" name="assets backend">
+        <xpath expr="script[last()]" position="after">
+            <script type="text/javascript" src="/tutorial_edit_access_right/static/src/js/form_controller.js"/>
+        </xpath>
+    </template>
+</odoo>

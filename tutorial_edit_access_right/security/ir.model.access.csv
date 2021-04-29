@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_model_one,model.one.user,tutorial_edit_access_right.model_model_one,tutorial_edit_access_right.group_tutorial_edit,1,1,1,1
+access_model_two,model.two.user,tutorial_edit_access_right.model_model_two,tutorial_edit_access_right.group_tutorial_edit,1,1,1,1
+access_model_three,model.three.user,tutorial_edit_access_right.model_model_three,tutorial_edit_access_right.group_tutorial_edit,1,1,1,1
+access_model_four,model.four.user,tutorial_edit_access_right.model_model_four,tutorial_edit_access_right.group_tutorial_edit,1,1,1,1
