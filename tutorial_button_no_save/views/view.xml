@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="model_one_form" model="ir.ui.view">
+            <field name="name">model.one.form</field>
+            <field name="model">model.one</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="recompute_total" string="Compute Result" class="oe_highlight" type="object" triggeronchange="result_trigger_field" />
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <field name="field_one" />
+                                <field name="field_two" />
+                                <field name="result_trigger_field" invisible="1" />
+                            </group>
+                            <group>
+                                <p>Please click the COMPUTE RESULT button to trigger onchange</p>
+                                <field name="field_result" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Test Don't Close Dialog on Button Click">
+                                <field name="model_two_id">
+                                    <tree editable="bottom">
+                                        <field name="partner" />
+                                        <field name="total_order" readonly="1" />
+                                        <button type="object" name="action_show_order" icon="fa-list" width="0.1" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="model_one_tree" model="ir.ui.view">
+            <field name="name">model_one_tree</field>
+            <field name="model">model.one</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="field_one" />
+                    <field name="field_two" />
+                    <field name="field_result" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="model_two_form" model="ir.ui.view">
+            <field name="name">model.two.form</field>
+            <field name="model">model.two</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="model_one_id" invisible="1" />
+                    <field name="total_trigger" invisible="1" />
+                    <field name="model_three_id">
+                        <tree editable="bottom">
+                            <field name="product" />
+                            <field name="qty_one" />
+                            <field name="qty_two" />
+                            <field name="total_qty" />
+                        </tree>
+                    </field>
+                    <footer>
+                        <button name="onchange_total_trigger" type="object" string="Compute Total"  triggeronchange="total_trigger" class="oe_highlight"/>
+                        <button string="Save" special="save" class="oe_highlight"/>
+                        <button string="Discard" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        
+
+        <record id="model_one_menu_action" model="ir.actions.act_window">
+            <field name="name">Model One</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">model.one</field>
+        </record>        
+
+        <menuitem id="tutorial_button_no_save_root"
+            name="Tutorial Button No Save"
+            web_icon="tutorial_edit_access_right,static/description/icon.png" />
+
+
+        <menuitem id="model_one_menu"
+            name="Model One"
+            parent="tutorial_button_no_save_root"
+            action="model_one_menu_action" />
+        
+    </data>
+</odoo>
