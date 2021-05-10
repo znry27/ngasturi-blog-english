@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!-- above code is odoo default code -->
+        <!-- display the new Middleman field below the Salesperson field -->
+        <record id="view_order_form_inherit" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="after">
+                    <field name="middleman" />
+                </field>
+            </field>
+        </record>
+     <!-- below code is odoo default code -->
+    </data>
+</odoo>
