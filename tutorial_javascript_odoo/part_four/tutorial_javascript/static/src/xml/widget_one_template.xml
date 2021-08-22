@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+
+    <t t-name="WidgetOneTemplate">
+        <div>
+            <t t-if="widget.mode == 'edit' ">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-danger btn-minus"> - </button>
+                    </div>
+                    <input type="text" class="form-control" t-att-value="formated_value" disabled="disabled" />
+                    <div class="input-group-append">
+                        <button class="btn btn-success btn-plus"> + </button>                        
+                        <button class="btn btn-primary btn-copy"><i class="fa fa-copy"></i></button>
+                        <!-- additional button in tutorial part four -->
+                        <button class="btn btn-warning btn-dollar"><i class="fa fa-dollar"></i></button>
+                    </div>
+                </div>
+            </t>
+            <t t-if="widget.mode == 'readonly' ">
+                <span t-esc="formated_value" />
+            </t>
+        </div>
+    </t>
+
+</template>

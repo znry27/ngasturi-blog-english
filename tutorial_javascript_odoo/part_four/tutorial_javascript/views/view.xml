@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="tutorial_javascript_form" model="ir.ui.view">
+            <field name="name">tutorial.javascript.form</field>
+            <field name="model">tutorial.javascript</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="field_one" widget="widget_one" options="{'step': 1000}" relatedModel="sale.order" attrs="{'relatedAction': 'get_last_order_amount'}" />
+                            </group>
+                            <group>
+                                <field name="field_two" />
+                                <field name="field_three" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="tutorial_javascript_menu_action" model="ir.actions.act_window">
+            <field name="name">Tutorial Javascript</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tutorial.javascript</field>
+        </record>
+
+        <menuitem id="tutorial_javascript_root"
+            name="Tutorial Javascript"
+            web_icon="tutorial_javascript,static/description/icon.png" />
+
+
+        <menuitem id="tutorial_javascript_menu"
+            name="Tutorial Javascript"
+            parent="tutorial_javascript_root"
+            action="tutorial_javascript_menu_action" />
+    </data>
+</odoo>
