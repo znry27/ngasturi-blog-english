@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+
+    <t t-name="sale">
+    	<form class="tutorial_form">
+    		<div class="row mt-4">
+	        	<div class="col-md-4">
+	        		<div class="form-group">
+					    <label>Customer Name</label>
+					    <input type="text" class="form-control" />
+					</div>
+					<div class="form-group">
+					    <label>Product</label>
+					    <input type="text" class="form-control" />
+					</div>
+					<div class="form-group">
+					    <label>Packaging Message</label>
+					    <input type="text" class="form-control" />
+					</div>
+					<button class="btn btn-primary btn-submit">Save</button>
+	        	</div>
+	        </div>
+    	</form>        
+    </t>
+
+    <t t-name="purchase">
+        <form class="tutorial_form">
+    		<div class="row mt-4">
+	        	<div class="col-md-4">
+	        		<div class="form-group">
+					    <label>Vendor Name</label>
+					    <input type="text" class="form-control" />
+					</div>
+					<div class="form-group">
+					    <label>Product</label>
+					    <input type="text" class="form-control" />
+					</div>
+					<div class="form-group">
+					    <label>Shipping Date</label>
+					    <input type="text" class="form-control" />
+					</div>
+					<button class="btn btn-primary btn-submit">Order Now</button>
+	        	</div>
+	        </div>
+    	</form> 
+    </t>
+
+    <t t-name="alert">
+        <div class="dialog-container">
+            <div class="dialog-box">
+                <span class="dialog-close fa fa-close" />
+                <div class="dialog-body">
+                    <t t-esc="message" />
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

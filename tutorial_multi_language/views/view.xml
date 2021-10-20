@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="tutorial_multi_language.frontend_layout" name="Tutorial Multi Language Frontend Layout" inherit_id="web.layout" primary="True">
+        <xpath expr="//head/meta[last()]" position="after">
+            <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+        </xpath>
+        <xpath expr="//head/link[last()]" position="after">
+            <t t-call-assets="web.assets_common" t-js="false"/>
+            <t t-call-assets="web.assets_frontend" t-js="false"/>
+        </xpath>
+        <xpath expr="//head/script" position="after">
+            <script type="text/javascript">
+                odoo.session_info = <t t-raw="json.dumps(request.env['ir.http'].get_frontend_session_info())"/>;
+                if (!/(^|;\s)tz=/.test(document.cookie)) {
+                    const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                    document.cookie = `tz=${userTZ}; path=/`;
+                }
+            </script>
+            <t t-call-assets="web.assets_common_minimal_js" t-css="false" defer_load="True"/>
+            <t t-call-assets="web.assets_frontend_minimal_js" t-css="false" defer_load="True"/>
+            <t t-call="web.conditional_assets_tests"/>
+            <t t-call-assets="web.assets_common_lazy" t-css="false" lazy_load="True"/>
+            <t t-call-assets="web.assets_frontend_lazy" t-css="false" lazy_load="True"/>            
+        </xpath>        
+    </template>
+
+    <template id="tutorial_multi_language.customer_portal" name="Tutorial Multi Language Portal">
+     	<t t-call="tutorial_multi_language.frontend_layout">
+            <div class="container portal-container">
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <t t-foreach="menus" t-as="menu">
+                            <a href="#" t-att-data-menu-id="menu['menu_id']" class="menu-item">
+                                <t t-esc="menu['label']" />
+                            </a>
+                        </t>
+                        <hr/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portal-content">
+                            <p>Please select the menu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>                 		
+     	</t>
+    </template>
+
+    <template id="multi_lang_tutorial_assets_frontend" inherit_id="portal.assets_frontend" name="Website Assets">
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/css" href="/tutorial_multi_language/static/src/css/portal.css"/>
+        </xpath>
+        <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="/tutorial_multi_language/static/src/js/portal.js"></script>
+        </xpath>
+    </template>
+</odoo>
