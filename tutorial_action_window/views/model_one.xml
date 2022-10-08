@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Action -->
+    <record id="action_model_one_1" model="ir.actions.act_window">
+        <field name="res_model">model.one</field>
+    </record>
+
+    <record id="action_model_one_new_window" model="ir.actions.act_window">
+        <field name="name">Model One In Modal</field>
+        <field name="res_model">model.one</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_model_one_inline" model="ir.actions.act_window">
+        <field name="name">Model One Inline</field>
+        <field name="res_model">model.one</field>
+        <field name="target">inline</field>
+    </record>
+
+    <record id="action_model_one_fullscreen" model="ir.actions.act_window">
+        <field name="name">Model One Fullscreen</field>
+        <field name="res_model">model.one</field>
+        <field name="target">fullscreen</field>
+    </record>
+
+    <record id="action_model_one_main" model="ir.actions.act_window">
+        <field name="name">Model One Main</field>
+        <field name="res_model">model.one</field>
+        <field name="target">main</field>
+    </record>
+
+    <record id="action_model_one_tree_view_only" model="ir.actions.act_window">
+        <field name="name">Model One Tree</field>
+        <field name="res_model">model.one</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <record id="action_model_one_tree_kanban" model="ir.actions.act_window">
+        <field name="name">Model One Kanban</field>
+        <field name="res_model">model.one</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_model_one_root"
+        name="Model One"
+        parent="menu_tutorial_root" />
+
+    <menuitem id="menu_model_one_1"
+        name="Menu 1"    
+        action="action_model_one_1"
+        parent="menu_model_one_root" />
+
+    <menuitem id="menu_model_one_2"
+        name="Menu 2"    
+        action="action_model_one_2"
+        parent="menu_model_one_root" />
+
+    <menuitem id="menu_model_one_new_window"
+        name="Menu 3 (Modal)"    
+        action="action_model_one_new_window"
+        parent="menu_model_one_root" />
+
+    <menuitem id="menu_model_one_inline"
+        name="Menu 4 (Inline)"    
+        action="action_model_one_inline"
+        parent="menu_model_one_root" />
+
+    <menuitem id="menu_model_one_fullscreen"
+        name="Menu 5 (Fullscreen)"    
+        action="action_model_one_fullscreen"
+        parent="menu_model_one_root" />
+
+    <menuitem id="menu_model_one_main"
+        name="Menu 6 (Main)"    
+        action="action_model_one_main"
+        parent="menu_model_one_root" />
+
+    <menuitem id="menu_model_one_tree"
+        name="Menu 7 (Tree)"    
+        action="action_model_one_tree_view_only"
+        parent="menu_model_one_root" />
+
+    <menuitem id="menu_model_one_kanban"
+        name="Menu 8 (Kanban,Tree)"    
+        action="action_model_one_tree_kanban"
+        parent="menu_model_one_root" />
+
+</odoo>

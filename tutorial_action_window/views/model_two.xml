@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- tree view -->
+    <record id="model_two_tree_view_1" model="ir.ui.view">
+        <field name="name">model_two_tree_view_1</field>
+        <field name="model">model.two</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="status" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="model_two_tree_view_2" model="ir.ui.view">
+        <field name="name">model_two_tree_view_2</field>
+        <field name="model">model.two</field>
+        <field name="priority">2</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="description" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="model_two_kanban_view_1" model="ir.ui.view">
+        <field name="name">model_two_kanban_view_1</field>
+        <field name="model">model.two</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="status"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_record_top mb16">
+                                <div class="o_kanban_record_headings mt4">
+                                    <strong class="o_kanban_record_title"><span><t t-esc="record.name.value"/></span></strong>
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_right">
+                                    <field name="status" widget="label_selection" />
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="model_two_kanban_view_2" model="ir.ui.view">
+        <field name="name">model_two_kanban_view_2</field>
+        <field name="model">model.two</field>
+        <field name="priority">2</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="description"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_record_top mb16">
+                                <div class="o_kanban_record_headings mt4">
+                                    <strong class="o_kanban_record_title"><span><t t-esc="record.name.value"/></span></strong>
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left">
+                                    <field name="description" />
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="model_two_form_view_1" model="ir.ui.view">
+        <field name="name">model_two_form_view_1</field>
+        <field name="model">model.two</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="status" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="model_two_form_view_2" model="ir.ui.view">
+        <field name="name">model_two_form_view_2</field>
+        <field name="model">model.two</field>
+        <field name="priority">2</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="description" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="model_two_search_view_1" model="ir.ui.view">
+        <field name="name">model_two_search_view_1</field>
+        <field name="model">model.two</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <filter string="New" domain="[('status','=','new')]" name="status_new"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="model_two_search_view_2" model="ir.ui.view">
+        <field name="name">model_two_search_view_2</field>
+        <field name="model">model.two</field>
+        <field name="priority">2</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <filter string="Confirmed" domain="[('status','=','confirmed')]" name="status_confirmed"/>
+                <filter string="Closed" domain="[('status','=','closed')]" name="status_closed"/>
+                <group expand="0" string="Group By">
+                    <filter string="Status" name="group_bystatus" domain="[]" context="{'group_by': 'status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_model_two_default" model="ir.actions.act_window">
+        <field name="res_model">model.two</field>
+    </record>
+
+    <record id="action_model_two_with_view_id_1" model="ir.actions.act_window">
+        <field name="res_model">model.two</field>
+        <field name="view_id" ref="model_two_tree_view_2"/>
+    </record>
+
+    <record id="action_model_two_with_view_id_2" model="ir.actions.act_window">
+        <field name="res_model">model.two</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_id" ref="model_two_form_view_2"/>
+    </record>
+
+    <record id="action_model_two_with_view_id_3" model="ir.actions.act_window">
+        <field name="res_model">model.two</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_id" ref="model_two_kanban_view_2"/>
+    </record>
+
+    <record id="action_model_two_with_view_ids" model="ir.actions.act_window">
+        <field name="res_model">model.two</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <record id="action_model_two_with_view_ids_tree_view" model="ir.actions.act_window.view">
+        <field name="act_window_id" ref="action_model_two_with_view_ids" />
+        <field name="view_id" ref="model_two_tree_view_2"/>
+        <field name="view_mode">tree</field>
+        <field name="sequence">2</field>
+    </record>
+
+    <record id="action_model_two_with_view_ids_kanban_view" model="ir.actions.act_window.view">
+        <field name="act_window_id" ref="action_model_two_with_view_ids" />
+        <field name="view_id" ref="model_two_kanban_view_2"/>
+        <field name="view_mode">kanban</field>
+        <field name="sequence">1</field>
+    </record>
+
+    <record id="action_model_two_with_view_ids_form_view" model="ir.actions.act_window.view">
+        <field name="act_window_id" ref="action_model_two_with_view_ids" />
+        <field name="view_id" ref="model_two_form_view_2"/>
+        <field name="view_mode">form</field>
+        <field name="sequence">3</field>
+    </record>
+
+    <record id="action_model_two_with_search_view" model="ir.actions.act_window">
+        <field name="res_model">model.two</field>
+        <field name="search_view_id" ref="model_two_search_view_2" />
+    </record>
+
+    <record id="action_model_two_limit_record_with_domain" model="ir.actions.act_window">
+        <field name="res_model">model.two</field>
+        <field name="domain">[('status','=','confirmed')]</field>
+    </record>
+
+    <record id="action_model_two_limit_record_with_search_view_and_context" model="ir.actions.act_window">
+        <field name="res_model">model.two</field>
+        <field name="search_view_id" ref="model_two_search_view_2" />
+        <field name="context">{'search_default_status_confirmed': 1}</field>
+    </record>
+
+    <record id="action_model_two_limit_record_number" model="ir.actions.act_window">
+        <field name="res_model">model.two</field>
+        <field name="limit">2</field>
+    </record>
+
+    <record id="action_model_two_with_default_value" model="ir.actions.act_window">
+        <field name="res_model">model.two</field>
+        <field name="context">{'default_name': 'Automatic filled'}</field>
+    </record>
+
+    <record id="action_model_two_open_specific_record" model="ir.actions.act_window">
+        <field name="res_model">model.two</field>
+        <field name="view_mode">form</field>
+        <field name="res_id" ref="model_two_automatic_created" />
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_model_two_root"
+        name="Model Two"
+        parent="menu_tutorial_root" />
+
+    <menuitem id="menu_model_two_default"
+        name="Menu 1 (Default)"
+        action="action_model_two_default"
+        parent="menu_model_two_root" />
+
+    <menuitem id="menu_model_two_with_view_id_1"
+        name="Menu 2 (With view id 1)"
+        action="action_model_two_with_view_id_1"
+        parent="menu_model_two_root" />
+
+    <menuitem id="menu_model_two_with_view_id_2"
+        name="Menu 3 (With view id 2)"
+        action="action_model_two_with_view_id_2"
+        parent="menu_model_two_root" />
+
+    <menuitem id="menu_model_two_with_view_id_3"
+        name="Menu 4 (With view id 3)"
+        action="action_model_two_with_view_id_3"
+        parent="menu_model_two_root" />
+
+    <menuitem id="menu_model_two_with_view_ids"
+        name="Menu 5 (With view ids)"
+        action="action_model_two_with_view_ids"
+        parent="menu_model_two_root" />
+
+    <menuitem id="menu_model_two_with_search_view"
+        name="Menu 6 (With search view)"
+        action="action_model_two_with_search_view"
+        parent="menu_model_two_root" />
+
+    <menuitem id="menu_model_two_limit_record_with_domain"
+        name="Menu 7 (Limit with domain)"
+        action="action_model_two_limit_record_with_domain"
+        parent="menu_model_two_root" />
+        
+    <menuitem id="menu_model_two_limit_record_with_search_view_and_context"
+        name="Menu 8 (Limit with search view and context)"
+        action="action_model_two_limit_record_with_search_view_and_context"
+        parent="menu_model_two_root" />
+
+    <menuitem id="menu_model_two_limit_record_number"
+        name="Menu 9 (Limit record number)"
+        action="action_model_two_limit_record_number"
+        parent="menu_model_two_root" />
+
+    <menuitem id="menu_model_two_with_default_value"
+        name="Menu 10 (With default value)"
+        action="action_model_two_with_default_value"
+        parent="menu_model_two_root" />
+        
+    <menuitem id="menu_model_two_open_specific_record"
+        name="Menu 11 (Open Specific Record)"
+        action="action_model_two_open_specific_record"
+        parent="menu_model_two_root" />
+
+</odoo>

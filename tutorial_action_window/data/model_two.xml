@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="model_two_automatic_created" model="model.two">
+        <field name="name">Automatic</field>
+        <field name="status">confirmed</field>
+        <field name="description">Added when install/upgrade the module</field>
+    </record>
+
+</odoo>

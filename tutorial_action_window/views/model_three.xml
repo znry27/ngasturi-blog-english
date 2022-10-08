@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="model_three_tree_view" model="ir.ui.view">
+        <field name="name">model_three_tree_view</field>
+        <field name="model">model.three</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="model_three_form_view" model="ir.ui.view">
+        <field name="name">model_three_form_view</field>
+        <field name="model">model.three</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="open_model_one" string="Open Model One" type="object" />
+                    <button name="open_model_two" string="Open Model Two" type="object" />
+                    <button name="open_model_two_with_specific_id" string="Open Model Two With ID" type="object" />
+                    <button name="open_model_two_with_specific_id_and_view_id" string="Open Model Two With ID and View ID" type="object" />
+                    <button name="open_model_two_with_id_and_view_id_from_search" string="Open Model Two With ID and View ID From Search" type="object" />
+                    <button name="open_model_two_with_views_option" string="Open Model Two With Views Option" type="object" />
+                    <button name="open_model_two_with_search_view" string="Open Model Two With Search View" type="object" />
+                    <button name="open_other_record" string="Open Other Record" type="object" />
+                    <button name="open_other_record_as_main_target" string="Open Other Record As Main Target" type="object" />
+                    <button name="open_action_from_xml" string="Open Action From XML" type="object" />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_model_three_1" model="ir.actions.act_window">
+        <field name="res_model">model.three</field>
+    </record>
+
+    <menuitem id="menu_model_three_root"
+        name="Model Three"
+        parent="menu_tutorial_root" />
+
+    <menuitem id="menu_model_three_1"
+        name="Menu 1"
+        action="action_model_three_1"
+        parent="menu_model_three_root" />
+
+</odoo>
